@@ -2,28 +2,29 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-try:
-    link = "http://suninjuly.github.io/registration2.html"
-    browser = webdriver.Chrome()
-    browser.get(link)
 
-    first_name = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your first name']")
-    first_name.send_keys("Ivan")
+def registration_form(link="http://suninjuly.github.io/registration1.html"):
+    try:
+        browser = webdriver.Chrome()
+        browser.get(link)
 
-    second_name = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your last name']")
-    second_name.send_keys("Petrov")
+        first_name = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your first name']")
+        first_name.send_keys("Ivan")
 
-    email = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your email']")
-    email.send_keys("sample@mail.ru")
+        second_name = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your last name']")
+        second_name.send_keys("Petrov")
 
-    browser.find_element(By.CSS_SELECTOR, "button.btn").click()
+        email = browser.find_element(By.XPATH, "//input[@placeholder = 'Input your email']")
+        email.send_keys("sample@mail.ru")
 
-    time.sleep(1)
+        browser.find_element(By.CSS_SELECTOR, "button.btn").click()
 
-    welcome_text = browser.find_element(By.TAG_NAME, "h1").text
+        time.sleep(1)
 
-    assert "Congratulations! You have successfully registered!" == welcome_text
+        welcome_text = browser.find_element(By.TAG_NAME, "h1").text
 
-finally:
-    time.sleep(5)
-    browser.quit()
+        assert "Congratulations! You have successfully registered!" == welcome_text
+
+    finally:
+        time.sleep(5)
+        browser.quit()
