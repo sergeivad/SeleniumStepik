@@ -33,12 +33,12 @@ class TestAbs(unittest.TestCase):
     def test_abs1(self):
         welcome_text = registration_form("http://suninjuly.github.io/registration1.html")
         self.assertEqual(welcome_text, "Congratulations! You have successfully registered!",
-                         "Should be absolute value of a number")
+                         "Не найден текст после заполнения формы")
 
     def test_abs2(self):
         welcome_text = registration_form("http://suninjuly.github.io/registration2.html")
         self.assertEqual(welcome_text, "Congratulations! You have successfully registered!",
-                         "Should be absolute value of a number")
+                         "Не найден текст после заполнения формы")
 
 
 if __name__ == "__main__":
